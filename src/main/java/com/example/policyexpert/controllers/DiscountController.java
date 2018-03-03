@@ -1,7 +1,8 @@
 package com.example.policyexpert.controllers;
 
+import com.example.policyexpert.entities.Discount;
 import com.example.policyexpert.entities.Item;
-import com.example.policyexpert.services.ItemServices;
+import com.example.policyexpert.services.DiscountServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -9,23 +10,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RequestMapping("/item")
+@RequestMapping("/discount")
 @RestController
-public class ItemController
+public class DiscountController
 {
     @Autowired
-    ItemServices itemServices;
+    DiscountServices discountServices;
 
     @RequestMapping(value="create" ,method= RequestMethod.POST)
-    public Item createItem(Item item)
+    public Discount createDiscount(Discount discount)
     {
-        itemServices.createItem(item);
-        return item;
-    }
-
-    @RequestMapping(method=RequestMethod.GET)
-    public List<Item> listItems()
-    {
-        return null;
+        discountServices.createDiscount(discount);
+        return discount;
     }
 }

@@ -8,7 +8,8 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan("com.example.policyexpert")
 public class PolicyexpertApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		SpringApplication.run(PolicyexpertApplication.class, args);
 	}
 }
