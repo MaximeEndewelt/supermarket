@@ -20,6 +20,16 @@ public class Item
         return name;
     }
 
+    public double getPrice()
+    {
+        return price;
+    }
+
+    public ItemType getType()
+    {
+        return type;
+    }
+
 
     public enum ItemType
     {

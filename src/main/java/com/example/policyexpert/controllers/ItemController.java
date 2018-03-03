@@ -13,8 +13,12 @@ import java.util.List;
 @RestController
 public class ItemController
 {
-    @Autowired
-    ItemServices itemServices;
+    private ItemServices itemServices;
+
+    public ItemController(ItemServices services)
+    {
+        this.itemServices = services;
+    }
 
     @RequestMapping(value="create" ,method= RequestMethod.POST)
     public Item createItem(Item item)
