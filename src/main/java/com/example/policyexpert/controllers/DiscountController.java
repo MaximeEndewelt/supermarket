@@ -14,8 +14,12 @@ import java.util.List;
 @RestController
 public class DiscountController
 {
-    @Autowired
-    DiscountServices discountServices;
+    private DiscountServices discountServices;
+
+    public DiscountController(DiscountServices services)
+    {
+        this.discountServices = services;
+    }
 
     @RequestMapping(value="create" ,method= RequestMethod.POST)
     public Discount createDiscount(Discount discount)
