@@ -20,6 +20,7 @@ public class ItemServicesTest
     public void setUp()
     {
         services = new ItemServices();
+        services.itemSelecter.getItems().clear();
     }
 
 
@@ -68,13 +69,13 @@ public class ItemServicesTest
         Item item = new Item("oranges", 2.0, Item.ItemType.WEIGHT);
         services.createItem(item);
 
-        Assert.assertThat(services.items.size(), is(1));
+        Assert.assertThat(services.itemSelecter.getItems().size(), is(1));
 
         item = new Item("butter", 3.0, Item.ItemType.UNIT);
 
         // Trigger exception
         services.createItem(item);
-        Assert.assertThat(services.items.size(), is(2));
+        Assert.assertThat(services.itemSelecter.getItems().size(), is(2));
 
     }
 }

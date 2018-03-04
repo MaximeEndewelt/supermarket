@@ -13,7 +13,8 @@ public class Discount
         this.price = price;
     }
 
-    public String getItemName() {
+    public String getItemName()
+    {
         return itemName;
     }
 

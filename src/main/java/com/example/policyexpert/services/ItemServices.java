@@ -1,6 +1,7 @@
 package com.example.policyexpert.services;
 
 import com.example.policyexpert.entities.Item;
+import com.example.policyexpert.entities.ItemSelecter;
 import com.example.policyexpert.exceptions.ConflictException;
 import org.springframework.stereotype.Service;
 
@@ -10,8 +11,12 @@ import java.util.Map;
 @Service
 public class ItemServices
 {
-    /** Map associating a item name to an item entity */
-    Map<String, Item> items = new HashMap<>();
+    ItemSelecter itemSelecter;
+
+    public  ItemServices()
+    {
+        itemSelecter = ItemSelecter.getInstance();
+    }
 
     public Item createItem(Item item)
     {
@@ -19,7 +24,7 @@ public class ItemServices
         this.validateItem(item);
 
         // And put it in the map
-        items.put(item.getName(), item);
+        itemSelecter.getItems().put(item.getName(), item);
         return  item;
     }
 
@@ -50,7 +55,7 @@ public class ItemServices
         //
         // Check if the item doesn't already exist
         //
-        if(items.get(item.getName()) != null)
+        if(itemSelecter.getItems().get(item.getName()) != null)
         {
             throw new ConflictException("The item already exist");
         }
